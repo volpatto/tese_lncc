@@ -6,13 +6,13 @@ os:
 
 sudo: required
 before_install:
-        - if [ "$TRAVIS_OS_NAME" = "linux" ]
-          then 
-                sudo apt-get update;
-                # Instalacao do texlive para execucao garantida de pacotes do latex
-                sudo apt-get install texlive-full;
-                # Instalacao dos requisitos minimos para o abntex2
-                sudo apt-get install texlive-publishers texlive-lang-portuguese texlive-latex-extra texlive-fonts-recommended;
+        - |
+                if [ "$TRAVIS_OS_NAME" = "linux" ]; then 
+                        sudo apt-get update;
+                        # Instalacao do texlive para execucao garantida de pacotes do latex
+                        sudo apt-get install texlive-full;
+                        # Instalacao dos requisitos minimos para o abntex2
+                        sudo apt-get install texlive-publishers texlive-lang-portuguese texlive-latex-extra texlive-fonts-recommended;
           else 
                 brew cask install mactex; 
           fi
