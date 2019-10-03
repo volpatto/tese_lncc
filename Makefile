@@ -15,10 +15,10 @@ tempdir: $(build_dir)
 	for d in $(directories); do \
 		echo $$d; \
 		mkdir -p $(build_dir)/$$d ; \
-		cd $(build_dir)/$$d
+		cd $(build_dir)/$$d ; \
 		find $(pwd)/$$d -maxdepth 1 -type f -exec ln -s {} . \; ; \
 	done
-	cd $(build_dir)
+	cd $(build_dir) ; \
 	find $(pwd) -maxdepth 1 -type f -not -path '*/\.*' -exec ln -s {} . \;	
 
 .ONESHELL:
